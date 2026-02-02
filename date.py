@@ -1,0 +1,28 @@
+"""
+Module for calculating the number of days between dates.
+"""
+
+from datetime import datetime
+
+def days_difference(date: str) -> int:
+    """
+    Calculate the number of days between the given date and the current date.
+
+    Parameters:
+    date (str): A date string in the format 'YYYY-MM-DD'.
+
+    Returns:
+    int: The number of days from the given date to the current date. A negative number
+         indicates the given date is in the future.
+    """
+    # Convert the date string to a datetime object
+    given_date = datetime.strptime(date, '%Y-%m-%d')
+    # Get the current date
+    current_date = datetime.today()
+    # Calculate the difference in days
+    difference = (current_date - given_date).days
+    return difference
+
+# Example of use
+print(days_difference("2022-02-24"))  # Date in the past War in Ukraine
+print(days_difference("2027-02-24"))  # Future date (negative number)
